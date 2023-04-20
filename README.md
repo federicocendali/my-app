@@ -1,6 +1,6 @@
 # React Native App
 
-React Native App using Expo CLI for the course Application Development at "Coderhouse".
+React Native App using Expo CLI for the course Application Development at "Coderhouse".  
 Development date, April/May 2023.
 
 ## Table of Contents
