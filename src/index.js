@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Text, View, Button, Modal } from 'react-native';
+import { View } from 'react-native';
 import { styles } from './styles';
-import { Input, List } from './components/index';
+import { Input, List, DFrame } from './components/index';
 
 export default function App() {
     const [text, setText] = useState('');
@@ -52,27 +52,13 @@ export default function App() {
                 information={events}
                 doAction={onHandlerEvent}
             />
-            <Modal visible={modalVisible} animationType='slide'>
-                <View style={styles.modalContainer}>
-                    <Text style={styles.modalTitle}>Event Detail</Text>
-                    <View style={styles.modalDetailContainer}>
-                        <Text style={styles.modalDetailMessage}>Are you sure to delete this item?</Text>
-                        <Text style={styles.selectedEvent}>{selectedEvent?.value}</Text>
-                    </View>
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            title='Cancel'
-                            color='#5252BC'
-                            onPress={() => onHandlerCancelModal()}
-                        />
-                        <Button
-                            title='Delete'
-                            color='#5252BC'
-                            onPress={() => onHandlerDeleteEvent(selectedEvent.id)}
-                        />
-                    </View>
-                </View>
-            </Modal>
+            <DFrame
+                isVisible={modalVisible}
+                animationType='slide'
+                onCancel={onHandlerCancelModal}
+                onDelete={onHandlerDeleteEvent}
+                selectedEvent={selectedEvent}
+            />
         </View>
     );
 }
