@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Text, View, Button, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, Button, Modal } from 'react-native';
 import { styles } from './styles';
-import { Input } from './components/index';
+import { Input, List } from './components/index';
 
 export default function App() {
     const [text, setText] = useState('');
@@ -38,14 +38,6 @@ export default function App() {
         setModalVisible(!modalVisible);
     }
 
-    const renderItem = ({ item }) => {
-        return (
-            <TouchableOpacity style={styles.itemContainer} onPress={() => onHandlerEvent(item.id)}>
-                <Text style={styles.item}>{item.value}</Text>
-            </TouchableOpacity>
-        )
-    }
-
     return (
         <View style={styles.container}>
             <Input
@@ -56,14 +48,10 @@ export default function App() {
                 placeholder='Enter your event'
                 value={text}
             />
-            <View style={styles.listContainer}>
-                <FlatList
-                    renderItem={renderItem}
-                    data={events}
-                    keyExtractor={(item) => item.id}
-                    alwaysBounceVertical={false}
-                />
-            </View>
+            <List
+                information={events}
+                doAction={onHandlerEvent}
+            />
             <Modal visible={modalVisible} animationType='slide'>
                 <View style={styles.modalContainer}>
                     <Text style={styles.modalTitle}>Event Detail</Text>

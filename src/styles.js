@@ -6,24 +6,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginHorizontal: 20,
     },
-    listContainer: {
-        flex: 1,
-        backgoundColor: '#fff',
-        marginVertical: 20,
-    },
-    itemContainer: {
-        height: 80,
-        justifyContent: 'center',
-        backgroundColor: '#52528C',
-        borderRadius: 5,
-        marginVertical: 5,
-    },
-    item: {
-        marginHorizontal: 10,
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
     modalContainer: {
         justifyContent: 'center',
         alignItems: 'center',
